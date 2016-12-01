@@ -1,0 +1,142 @@
+<DOCTYPE html>
+<html>
+	
+	<head>
+	
+		<title>DINO DINO DINOSAUR</title>
+		<meta charset="utf-8"></meta>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<style>
+			span{
+			
+				font-family: monospace;
+				white-space: pre;
+			}
+			
+			#cabeca{
+			
+				position: absolute;
+				left: 50px;
+				top: 20px;
+			}
+			
+			#tronco{
+			
+				position: absolute;
+				left: 50px;
+				top: 95px;
+			}
+			
+			#pernas{
+			
+				position: absolute;
+				left: 50px;
+				top: 170px;
+			}
+			
+			#braco-esquerdo{
+			
+				position: absolute;
+				left: 20px;
+				top: 110px;
+			}
+			
+			#braco-direito{
+			
+				position: absolute;
+				left: 102px;
+				top: 110px;
+			}
+		</style>
+		<script type="text/javascript">
+		
+			$(document).ready(function(){
+			
+				stance();
+			});
+		
+			function stance(){
+				
+				var head = $("#cabeca");
+				var body = $("#tronco");
+				var legs = $("#pernas");
+				var left_arm = $("#braco-esquerdo");
+				var right_arm = $("#braco-direito");
+				var top_head = 20;
+				var top_body = 95;
+				var left_right_arm = 102;
+				var left_left_arm = 20;
+				var left_body = 50;
+				var left_head = 50;
+				var id = setInterval(frame, 5);
+				var timer = 0;
+				
+				function frame(){
+					
+					timer = timer + 1;
+					
+					var head_anim = top_head + (Math.sin(timer/50) * 3)
+					head.css("top", head_anim + "px");
+					var body_anim = top_body + (Math.sin(timer/20) * 2)
+					body.css("top", body_anim + "px");
+					var arm_anim = top_body+15 + (Math.sin(timer/20) * 4)
+					left_arm.css("top", arm_anim + "px");
+					right_arm.css("top", arm_anim + "px");
+					hor_anim = (Math.cos(timer/40));
+					hor_head_anim = (Math.cos(timer/40 - 2) * 2);
+					left_arm.css("left", left_left_arm+hor_anim + "px");
+					right_arm.css("left", left_right_arm+hor_anim + "px");
+					body.css("left", left_body+hor_anim + "px");
+					head.css("left", left_head+hor_head_anim + "px");
+				}
+			} 
+		</script>
+	</head>
+	
+	<body>
+	
+		<div id="cabeca">
+			
+			<span>  _____</span><br>
+			<span> /  _ _\</span><br>
+			<span>|   0 0 |</span><br>
+			<span>|    v  |</span><br>
+			<span> \_____/</span><br>
+		</div>
+		
+		<div id="tronco">
+		
+			<span>  _||_</span><br>
+			<span> |    |</span><br>
+			<span> |    |</span><br>
+			<span> |    |</span><br>
+			<span> |____|</span><br>
+		</div>
+		
+		<div id="pernas">
+		
+			<span> ||  ||</span><br>
+			<span> ||  ||</span><br>
+			<span> //  ||</span><br>
+			<span>//_  ||_</span><br>
+			<span>|__| |__| </span><br>
+		</div>
+		
+		<div id="braco-esquerdo">
+			
+			<span>  / /</span><br>
+			<span> //</span><br>
+			<span>//__</span><br>
+			<span>---//</span><br>
+		</div>
+		
+		<div id="braco-direito">
+			
+			<span>||</span><br>
+			<span>||</span><br>
+			<span>||</span><br>
+			<span>||</span><br>
+			<span>||</span><br>
+		</div>
+	</body>
+</html/>
